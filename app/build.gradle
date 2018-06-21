@@ -18,6 +18,12 @@ android {
 //            'armeabi', 'x86',, 'arm64-v8a', 'x86_64'
         }
 
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ moduleName : project.getName() ]
+            }
+        }
+
     }
     buildTypes {
         release {

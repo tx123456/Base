@@ -6,6 +6,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.tanxin.base.R;
 import com.tanxin.base.common.base.BaseActivity;
 import com.tanxin.base.common.base.BaseEvent;
@@ -42,10 +43,14 @@ public class MainActivity extends BaseActivity {
     protected void initView(Bundle savedInstanceState) {
         BaseFragment borrowFragment = findFragment(CeshiFragment.class);
         if (borrowFragment == null) {
-            mFragments[ONE] = CeshiFragment.newInstance("ONE");
-            mFragments[TWO] = CeshiFragment.newInstance("TWO");
-            mFragments[THREE] = CeshiFragment.newInstance("THREE");
-            mFragments[FOUR] = CeshiFragment.newInstance("FOUR");
+            mFragments[ONE] = (BaseFragment) ARouter.getInstance().build("/test/fragment")
+                        .withString("key","ONE").navigation();
+            mFragments[TWO] = (BaseFragment) ARouter.getInstance().build("/test/fragment")
+                        .withString("key","TWO").navigation();
+            mFragments[THREE] = (BaseFragment) ARouter.getInstance().build("/test/fragment")
+                        .withString("key","THREE").navigation();
+            mFragments[FOUR] = (BaseFragment) ARouter.getInstance().build("/test/fragment")
+                        .withString("key","FOUR").navigation();
             loadMultipleRootFragment(R.id.main_container, ONE,
                     mFragments[ONE], mFragments[TWO], mFragments[THREE], mFragments[FOUR]);
         } else {
@@ -77,6 +82,8 @@ public class MainActivity extends BaseActivity {
                 return true;
             }
         });
+
+        ARouter.getInstance().build("/test/activity").withString("key","ddd").navigation();
 
     }
 

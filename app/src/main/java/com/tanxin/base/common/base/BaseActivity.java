@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.blankj.utilcode.util.LogUtils;
 
 import org.greenrobot.eventbus.EventBus;
@@ -30,6 +31,7 @@ public abstract class BaseActivity extends SupportActivity{
         setBaseView();
         LogUtils.i(getClass().getName());
         unbinder = ButterKnife.bind(this);
+        ARouter.getInstance().inject(this);
         initView(savedInstanceState);
         EventBus.getDefault().register(this);
     }

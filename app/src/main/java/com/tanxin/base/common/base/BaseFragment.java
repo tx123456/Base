@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.tanxin.base.modules.MyAppLike;
 
 import org.greenrobot.eventbus.EventBus;
@@ -40,8 +41,8 @@ public abstract class BaseFragment extends SupportFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         EventBus.getDefault().register(this);
+        ARouter.getInstance().inject(this);
         setBaseView(inflater,container);
-
         unbinder = ButterKnife.bind(this,rootView);
         noLazy();
         return rootView;

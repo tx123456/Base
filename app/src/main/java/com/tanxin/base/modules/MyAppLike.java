@@ -9,6 +9,7 @@ import android.os.Build;
 import android.os.Environment;
 import android.support.multidex.MultiDex;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.blankj.utilcode.util.Utils;
 import com.tanxin.base.R;
 import com.tanxin.base.common.api.Constant;
@@ -37,6 +38,10 @@ public class MyAppLike extends DefaultApplicationLike {
         context = getApplication();
         Utils.init(context);
         initBugly();
+
+        ARouter.openLog();
+        ARouter.openDebug();
+        ARouter.init(getApplication());
     }
 
     private void initBugly() {
