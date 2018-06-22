@@ -42,6 +42,7 @@
             android:theme="@android:style/Theme.Translucent" />
         <!-- =======================bugly配置结束====================== -->
         <activity android:name=".modules.ArouteActivity"></activity>
+        <activity android:name=".modules.LoginActivity"></activity>
     </application>
 
 </manifest>

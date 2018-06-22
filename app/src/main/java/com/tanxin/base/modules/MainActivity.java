@@ -43,14 +43,10 @@ public class MainActivity extends BaseActivity {
     protected void initView(Bundle savedInstanceState) {
         BaseFragment borrowFragment = findFragment(CeshiFragment.class);
         if (borrowFragment == null) {
-            mFragments[ONE] = (BaseFragment) ARouter.getInstance().build("/test/fragment")
-                        .withString("key","ONE").navigation();
-            mFragments[TWO] = (BaseFragment) ARouter.getInstance().build("/test/fragment")
-                        .withString("key","TWO").navigation();
-            mFragments[THREE] = (BaseFragment) ARouter.getInstance().build("/test/fragment")
-                        .withString("key","THREE").navigation();
-            mFragments[FOUR] = (BaseFragment) ARouter.getInstance().build("/test/fragment")
-                        .withString("key","FOUR").navigation();
+            mFragments[ONE] = CeshiFragment.startFragment("ONE");
+            mFragments[TWO] = CeshiFragment.startFragment("TWO");
+            mFragments[THREE] = CeshiFragment.startFragment("THREE");
+            mFragments[FOUR] = CeshiFragment.startFragment("FOUR");
             loadMultipleRootFragment(R.id.main_container, ONE,
                     mFragments[ONE], mFragments[TWO], mFragments[THREE], mFragments[FOUR]);
         } else {
@@ -83,7 +79,7 @@ public class MainActivity extends BaseActivity {
             }
         });
 
-        ARouter.getInstance().build("/test/activity").withString("key","ddd").navigation();
+
 
     }
 

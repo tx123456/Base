@@ -1,6 +1,5 @@
 package com.tanxin.base.modules;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -14,8 +13,8 @@ import com.tanxin.base.common.base.BaseEvent;
 
 import butterknife.BindView;
 
-@Route(path = "/test/activity")
-public class ArouteActivity extends BaseActivity {
+@Route(path = "/test/login")
+public class LoginActivity extends BaseActivity {
     @Autowired
     public String key;
 
@@ -23,7 +22,7 @@ public class ArouteActivity extends BaseActivity {
     TextView tv;
 
     public static void startActivity(String key){
-        ARouter.getInstance().build("/test/activity").withString("key",key).navigation();
+        ARouter.getInstance().build("/test/login").withString("key",key).navigation();
     }
 
     @Override
