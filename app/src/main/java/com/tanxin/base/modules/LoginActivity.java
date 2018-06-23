@@ -7,6 +7,7 @@ import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.blankj.utilcode.util.ToastUtils;
+import com.leon.channel.helper.ChannelReaderUtil;
 import com.tanxin.base.R;
 import com.tanxin.base.common.base.BaseActivity;
 import com.tanxin.base.common.base.BaseEvent;
@@ -38,6 +39,6 @@ public class LoginActivity extends BaseActivity {
     @Override
     protected void initView(Bundle savedInstanceState) {
         ToastUtils.showShort(key);
-        tv.setText(key);
+        tv.setText(ChannelReaderUtil.getChannel(getContext()));
     }
 }
