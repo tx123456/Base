@@ -1,10 +1,16 @@
 package com.tanxin.base.common.util;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.app.Application;
+import android.content.ComponentCallbacks;
+import android.content.res.Configuration;
+import android.support.annotation.NonNull;
 import android.support.design.internal.BottomNavigationItemView;
 import android.support.design.internal.BottomNavigationMenuView;
 import android.support.design.widget.BottomNavigationView;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import android.util.Log;
 
 import java.io.BufferedReader;
@@ -73,5 +79,42 @@ public class Utils   {
         } catch (IllegalAccessException e) {
             Log.e("BNVHelper", "Unable to change value of shift mode", e);
         }
+    }
+
+
+    public static float sNoncompatDensity;
+    public static float sNoncompatScaledDensity;
+    public static void setCustomDensity(@NonNull Activity activity, final Application application){
+        final DisplayMetrics appDisplayMetrics = application.getResources().getDisplayMetrics();
+        if (sNoncompatDensity == 0){
+            sNoncompatDensity = appDisplayMetrics.density;
+            sNoncompatScaledDensity = appDisplayMetrics.scaledDensity;
+            application.registerComponentCallbacks(new ComponentCallbacks() {
+                @Override
+                public void onConfigurationChanged(Configuration newConfig) {
+                    if (newConfig != null && newConfig.fontScale >0 ){
+                        sNoncompatScaledDensity = application.getResources().getDisplayMetrics().scaledDensity;
+                    }
+                }
+
+                @Override
+                public void onLowMemory() {
+
+                }
+            });
+        }
+
+        final float targetDensity =  (float)appDisplayMetrics.widthPixels/360;
+        final float targetScaledDensity = targetDensity * (sNoncompatScaledDensity/sNoncompatDensity);
+        final int targetDensityDpi = (int) (106 * targetDensity);
+        appDisplayMetrics.density = targetDensity;
+        appDisplayMetrics.scaledDensity = targetScaledDensity;
+        appDisplayMetrics.densityDpi = targetDensityDpi;
+
+        final DisplayMetrics activityDisplayMetrics = activity.getResources().getDisplayMetrics();
+        activityDisplayMetrics.density = targetDensity;
+        activityDisplayMetrics.scaledDensity = targetScaledDensity;
+        activityDisplayMetrics.densityDpi = targetDensityDpi;
+
     }
 }
