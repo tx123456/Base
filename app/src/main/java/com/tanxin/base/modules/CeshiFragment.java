@@ -12,6 +12,8 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.tanxin.base.R;
 import com.tanxin.base.common.base.BaseEvent;
 import com.tanxin.base.common.base.BaseFragment;
+import com.tanxin.base.common.base.BaseMvpFragment;
+import com.tanxin.base.common.base.mvp.CreatePresenter;
 
 import butterknife.BindView;
 
@@ -19,7 +21,8 @@ import butterknife.BindView;
  * A simple {@link Fragment} subclass.
  */
 @Route(path = "/test/fragment")
-public class CeshiFragment extends BaseFragment {
+@CreatePresenter(presenter = LoginPersenter.class)
+public class CeshiFragment extends BaseMvpFragment<LoginPersenter> implements LoginView {
 
 
     @BindView(R.id.tv)
@@ -55,6 +58,11 @@ public class CeshiFragment extends BaseFragment {
 
             }
         });
+        getPresenter().login();
     }
 
+    @Override
+    public void loginSuccess() {
+        showError("loh");
+    }
 }

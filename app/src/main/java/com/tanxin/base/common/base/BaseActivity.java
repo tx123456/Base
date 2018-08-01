@@ -33,8 +33,8 @@ public abstract class BaseActivity extends SupportActivity{
         LogUtils.i(getClass().getName());
         unbinder = ButterKnife.bind(this);
         ARouter.getInstance().inject(this);
-        initView(savedInstanceState);
         EventBus.getDefault().register(this);
+        initView(savedInstanceState);
         Utils.setCustomDensity(this,getApplication());
     }
 

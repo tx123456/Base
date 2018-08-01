@@ -106,7 +106,7 @@ public class Utils   {
 
         final float targetDensity =  (float)appDisplayMetrics.widthPixels/360;
         final float targetScaledDensity = targetDensity * (sNoncompatScaledDensity/sNoncompatDensity);
-        final int targetDensityDpi = (int) (106 * targetDensity);
+        final int targetDensityDpi = (int) (160 * targetDensity);
         appDisplayMetrics.density = targetDensity;
         appDisplayMetrics.scaledDensity = targetScaledDensity;
         appDisplayMetrics.densityDpi = targetDensityDpi;

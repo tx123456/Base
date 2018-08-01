@@ -9,6 +9,7 @@ import com.blankj.utilcode.util.BarUtils;
 import com.qmuiteam.qmui.widget.QMUITopBar;
 import com.tanxin.base.R;
 import com.tanxin.base.common.api.Constant;
+import com.tanxin.base.common.util.Utils;
 
 /**
  * @author TANXIN

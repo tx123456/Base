@@ -11,11 +11,13 @@ import com.tanxin.base.R;
 import com.tanxin.base.common.base.BaseActivity;
 import com.tanxin.base.common.base.BaseEvent;
 import com.tanxin.base.common.base.BaseFragment;
+import com.tanxin.base.common.base.BaseMvpActivity;
+import com.tanxin.base.common.base.mvp.CreatePresenter;
 import com.tanxin.base.common.util.Utils;
 
 import butterknife.BindView;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity{
 
 
     @BindView(R.id.main_container)
@@ -48,7 +50,7 @@ public class MainActivity extends BaseActivity {
             mFragments[THREE] = CeshiFragment.startFragment("THREE");
             mFragments[FOUR] = CeshiFragment.startFragment("FOUR");
             loadMultipleRootFragment(R.id.main_container, ONE,
-                    mFragments[ONE], mFragments[TWO], mFragments[THREE], mFragments[FOUR]);
+                        mFragments[ONE], mFragments[TWO], mFragments[THREE], mFragments[FOUR]);
         } else {
             mFragments[ONE] = borrowFragment;
             mFragments[TWO] = findFragment(CeshiFragment.class);
@@ -80,8 +82,6 @@ public class MainActivity extends BaseActivity {
         });
 
 
-
     }
-
 
 }

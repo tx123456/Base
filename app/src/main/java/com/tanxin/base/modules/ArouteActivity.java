@@ -1,6 +1,5 @@
 package com.tanxin.base.modules;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
