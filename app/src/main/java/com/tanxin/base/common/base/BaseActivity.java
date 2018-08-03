@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.blankj.utilcode.util.LogUtils;
+import com.blankj.utilcode.util.ScreenUtils;
 import com.tanxin.base.common.util.Utils;
 
 import org.greenrobot.eventbus.EventBus;
@@ -34,8 +35,12 @@ public abstract class BaseActivity extends SupportActivity{
         unbinder = ButterKnife.bind(this);
         ARouter.getInstance().inject(this);
         EventBus.getDefault().register(this);
+        if (ScreenUtils.isPortrait()) {
+            ScreenUtils.adaptScreen4VerticalSlide(this, 360);
+        } else {
+            ScreenUtils.adaptScreen4HorizontalSlide(this, 360);
+        }
         initView(savedInstanceState);
-        Utils.setCustomDensity(this,getApplication());
     }
 
     public void setWindow(){}
