@@ -1,4 +1,4 @@
-package com.tanxin.base.modules;
+package com.tanxin.base.modules.activity;
 
 import android.os.Bundle;
 import android.widget.TextView;

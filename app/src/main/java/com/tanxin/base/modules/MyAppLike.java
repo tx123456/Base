@@ -11,7 +11,7 @@ import android.support.multidex.MultiDex;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.blankj.utilcode.util.Utils;
-import com.leon.channel.helper.ChannelReaderUtil;
+import com.meituan.android.walle.WalleChannelReader;
 import com.tanxin.base.R;
 import com.tanxin.base.common.api.Constant;
 import com.tencent.bugly.Bugly;
@@ -44,7 +44,7 @@ public class MyAppLike extends DefaultApplicationLike {
         ARouter.openDebug();
         ARouter.init(getApplication());
 
-        String channel = ChannelReaderUtil.getChannel(context);
+        String channel = WalleChannelReader.getChannel(context);
     }
 
     private void initBugly() {

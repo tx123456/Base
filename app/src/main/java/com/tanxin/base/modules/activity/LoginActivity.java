@@ -1,4 +1,4 @@
-package com.tanxin.base.modules;
+package com.tanxin.base.modules.activity;
 
 import android.os.Bundle;
 import android.widget.TextView;
@@ -8,15 +8,12 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.blankj.utilcode.constant.TimeConstants;
 import com.blankj.utilcode.util.TimeUtils;
-import com.blankj.utilcode.util.ToastUtils;
-import com.leon.channel.helper.ChannelReaderUtil;
 import com.tanxin.base.R;
-import com.tanxin.base.common.base.BaseActivity;
 import com.tanxin.base.common.base.BaseEvent;
-import com.tanxin.base.common.base.BaseTitleActivity;
 import com.tanxin.base.common.base.BaseTitleMvpActivity;
 import com.tanxin.base.common.base.mvp.CreatePresenter;
-import com.tanxin.base.common.base.mvp.PresenterVariable;
+import com.tanxin.base.modules.persenter.LoginPersenter;
+import com.tanxin.base.modules.view.LoginView;
 
 import butterknife.BindView;
 

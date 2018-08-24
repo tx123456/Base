@@ -1,6 +1,7 @@
-package com.tanxin.base.modules;
+package com.tanxin.base.modules.persenter;
 
 import com.tanxin.base.common.base.mvp.BasePresenter;
+import com.tanxin.base.modules.view.LoginView;
 
 /**
  * @author TANXIN

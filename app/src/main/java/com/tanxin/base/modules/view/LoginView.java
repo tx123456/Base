@@ -1,4 +1,4 @@
-package com.tanxin.base.modules;
+package com.tanxin.base.modules.view;
 
 import com.tanxin.base.common.base.mvp.BaseMvpView;
 

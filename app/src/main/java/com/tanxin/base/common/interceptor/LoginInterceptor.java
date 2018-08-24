@@ -1,4 +1,4 @@
-package com.tanxin.base.modules;
+package com.tanxin.base.common.interceptor;
 import android.content.Context;
 
 import com.alibaba.android.arouter.facade.Postcard;
@@ -6,6 +6,7 @@ import com.alibaba.android.arouter.facade.annotation.Interceptor;
 import com.alibaba.android.arouter.facade.callback.InterceptorCallback;
 import com.alibaba.android.arouter.facade.template.IInterceptor;
 import com.blankj.utilcode.util.LogUtils;
+import com.tanxin.base.modules.activity.LoginActivity;
 
 /**
  * @author TANXIN

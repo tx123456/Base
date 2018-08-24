@@ -6,14 +6,12 @@ import android.support.design.widget.BottomNavigationView;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
-import com.alibaba.android.arouter.launcher.ARouter;
 import com.tanxin.base.R;
 import com.tanxin.base.common.base.BaseActivity;
 import com.tanxin.base.common.base.BaseEvent;
 import com.tanxin.base.common.base.BaseFragment;
-import com.tanxin.base.common.base.BaseMvpActivity;
-import com.tanxin.base.common.base.mvp.CreatePresenter;
 import com.tanxin.base.common.util.Utils;
+import com.tanxin.base.modules.fragment.CeshiFragment;
 
 import butterknife.BindView;
 

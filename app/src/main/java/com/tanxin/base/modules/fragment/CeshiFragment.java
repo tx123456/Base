@@ -1,8 +1,7 @@
-package com.tanxin.base.modules;
+package com.tanxin.base.modules.fragment;
 
 
 import android.app.Fragment;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
@@ -14,6 +13,10 @@ import com.tanxin.base.common.base.BaseEvent;
 import com.tanxin.base.common.base.BaseFragment;
 import com.tanxin.base.common.base.BaseMvpFragment;
 import com.tanxin.base.common.base.mvp.CreatePresenter;
+import com.tanxin.base.modules.activity.ArouteActivity;
+import com.tanxin.base.modules.activity.LoginActivity;
+import com.tanxin.base.modules.persenter.LoginPersenter;
+import com.tanxin.base.modules.view.LoginView;
 
 import butterknife.BindView;
 
