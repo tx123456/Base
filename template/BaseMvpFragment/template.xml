@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<template
+        format="5"
+        revision="6"
+        name="BaseMvpFragment"
+        minApi="9"
+        minBuildApi="14"
+        description="Creates a new base mvp fragment">
+
+    <category value="BaseMvp"/>
+    <formfactor value="Mobile"/>
+	
+	<parameter
+            id="name"
+            name="Default"
+            type="string"
+			constraints="nonempty"
+            default="Default"
+            help="DefaultName"/>
+
+    <parameter
+            id="fragmentName"
+            name="Fragment Name"
+            type="string"
+            constraints="class|unique|nonempty"
+            suggest="${name}Fragment"
+            default="BaseMvpFragment"
+            help="The name of the Fragment class to create"/>
+
+			
+	<parameter
+			id="mvp"
+			name="Is Mvp?"
+			type="boolean"
+			default="false"
+			help="Generate a mvp fragment" />
+			
+	<parameter
+            id="presenterName"
+            name="Presenter Name"
+            type="string"
+			suggest="${name}Presenter"
+			visibility="mvp"
+            constraints="class|unique|nonempty"
+            default="BasePresenter"
+            help="The name of the persenter class to create"/>
+			
+	<parameter
+            id="viewName"
+            name="View Name"
+            type="string"
+			visibility="mvp"
+			suggest="${name}View"
+            constraints="class|unique|nonempty"
+            default="BaseMvpView"
+            help="The name of the view class to create"/>
+
+    <parameter
+            id="layoutName"
+            name="Fragment Layout Name"
+            type="string"
+            constraints="layout|unique|nonempty"
+			suggest="${classToResource(fragmentName)}_fragment"
+            default="fragment_main"
+            help="The name of the layout to create for the Fragment"/>  
+ 
+
+    <parameter
+            id="packageName"
+            name="Package name"
+            type="string"
+            constraints="package"
+            default="com.tanxin.base"/>
+
+    <!-- 128x128 thumbnails relative to template.xml -->
+    <thumbs>
+        <!-- default thumbnail is required -->
+        <thumb>template_blank_activity.png</thumb>
+    </thumbs>
+
+    <globals file="globals.xml.ftl"/>
+    <execute file="recipe.xml.ftl"/>
+
+</template>

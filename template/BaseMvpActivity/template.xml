@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<template
+        format="5"
+        revision="6"
+        name="BaseMvpActivity"
+        minApi="9"
+        minBuildApi="14"
+        description="Creates a new base mvp activity">
+
+    <category value="BaseMvp"/>
+    <formfactor value="Mobile"/>
+	
+	<parameter
+            id="name"
+            name="Default"
+            type="string"
+			constraints="nonempty"
+            default="Default"
+            help="DefaultName"/>
+			
+	<parameter
+        id="mvp"
+        name="Is Mvp?"
+        type="boolean"
+        default="false"
+        help="Generate a mvp activity" />
+
+    <parameter
+            id="activityName"
+            name="Activity Name"
+            type="string"
+            constraints="class|unique|nonempty"
+            suggest="${name}Activity"
+            default="BaseMvpActivity"
+            help="The name of the activity class to create"/>
+			
+	<parameter
+            id="useTitle"
+            name="extend BaseTitle"
+            type="boolean"
+            default="false"
+            help="If true, the extend BaseTitle"/>
+			
+	<parameter
+            id="presenterName"
+            name="Persenter Name"
+            type="string"
+			suggest="${name}Presenter"
+            constraints="class|unique|nonempty"
+			visibility="mvp"
+            default="BasePresenter"
+            help="The name of the persenter class to create"/>
+			
+	<parameter
+            id="viewName"
+            name="View Name"
+            type="string"
+			visibility="mvp"
+			suggest="${name}View"
+            constraints="class|unique|nonempty"
+            default="BaseMvpView"
+            help="The name of the view class to create"/>
+
+    <parameter
+            id="layoutName"
+            name="Activity Layout Name"
+            type="string"
+            constraints="layout|unique|nonempty"
+            suggest="${activityToLayout(activityName)}"
+            default="activity_main"
+            help="The name of the layout to create for the activity"/>  
+ 
+
+    <parameter
+            id="packageName"
+            name="Package name"
+            type="string"
+            constraints="package"
+            default="com.tanxin.base"/>
+
+    <!-- 128x128 thumbnails relative to template.xml -->
+    <thumbs>
+        <!-- default thumbnail is required -->
+        <thumb>template_blank_activity.png</thumb>
+    </thumbs>
+
+    <globals file="globals.xml.ftl"/>
+    <execute file="recipe.xml.ftl"/>
+
+</template>

@@ -41,8 +41,8 @@
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@android:style/Theme.Translucent" />
         <!-- =======================bugly配置结束====================== -->
-        <activity android:name=".modules.activity.ArouteActivity"></activity>
-        <activity android:name=".modules.activity.LoginActivity"></activity>
+        <activity android:name=".modules.activity.ArouteActivity" />
+        <activity android:name=".modules.activity.LoginActivity" />
     </application>
 
 </manifest>
