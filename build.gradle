@@ -37,4 +37,5 @@ ext{
     buildToolsVersion = '27.0.3'
 
     supportVersion = '27.1.1'
+    environmentVersion = '1.3'
 }

@@ -4,6 +4,9 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
+
 /**
  * @author TANXIN
  * @date 2018/7/31 
@@ -11,6 +14,7 @@ import android.support.annotation.Nullable;
  
  
 public class BasePresenter <V>  {
+    private CompositeDisposable compositeDisposable;
     protected Context mContext;
     protected V mView;
 
@@ -24,6 +28,7 @@ public class BasePresenter <V>  {
     }
 
     public void detachView() {
+        dispose();
         this.mView = null;
     }
 
@@ -43,4 +48,19 @@ public class BasePresenter <V>  {
     public void onSaveInstanceState(Bundle outState) {
 
     }
+
+
+    public void addDisposable(Disposable disposable) {
+        if (compositeDisposable == null) {
+            compositeDisposable = new CompositeDisposable();
+        }
+        compositeDisposable.add(disposable);
+    }
+
+    private void dispose() {
+        if (compositeDisposable != null) {
+            compositeDisposable.dispose();
+        }
+    }
+
 }
