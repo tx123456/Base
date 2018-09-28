@@ -4,11 +4,11 @@
     android:layout_height="match_parent">
 
     <com.qmuiteam.qmui.widget.QMUITopBar
-        android:id="@+id/qmui_topbar"
+        android:id="@+id/qmuiTopBar"
         android:layout_width="match_parent"
         android:layout_height="45dp"/>
     <FrameLayout
-        android:id="@+id/activity_container"
+        android:id="@+id/activityContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

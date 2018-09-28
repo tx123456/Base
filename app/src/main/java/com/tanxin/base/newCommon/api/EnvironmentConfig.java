@@ -1,4 +1,4 @@
-package com.tanxin.base.common.api;
+package com.tanxin.base.newCommon.api;
 
 import com.xiaomai.environmentswitcher.annotation.Environment;
 import com.xiaomai.environmentswitcher.annotation.Module;

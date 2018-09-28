@@ -10,8 +10,8 @@ import com.tanxin.base.R;
 import com.tanxin.base.common.base.BaseActivity;
 import com.tanxin.base.common.base.BaseEvent;
 import com.tanxin.base.common.base.BaseFragment;
-import com.tanxin.base.common.util.Utils;
 import com.tanxin.base.modules.fragment.CeshiFragment;
+import com.tanxin.base.newCommon.util.Utils;
 
 import butterknife.BindView;
 
@@ -55,7 +55,7 @@ public class MainActivity extends BaseActivity{
             mFragments[THREE] = findFragment(CeshiFragment.class);
             mFragments[FOUR] = findFragment(CeshiFragment.class);
         }
-        Utils.disableShiftMode(tabView);
+        Utils.Companion.disableShiftMode(tabView);
         tabView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

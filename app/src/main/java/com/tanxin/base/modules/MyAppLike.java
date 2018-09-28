@@ -13,7 +13,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.blankj.utilcode.util.Utils;
 import com.meituan.android.walle.WalleChannelReader;
 import com.tanxin.base.R;
-import com.tanxin.base.common.api.Constant;
+import com.tanxin.base.newCommon.api.Constant;
 import com.tencent.bugly.Bugly;
 import com.tencent.bugly.beta.Beta;
 import com.tencent.bugly.crashreport.CrashReport;
@@ -133,12 +133,12 @@ public class MyAppLike extends DefaultApplicationLike {
         // 获取当前包名
         String packageName = context.getPackageName();
         // 获取当前进程名
-        String processName = com.tanxin.base.common.util.Utils.getProcessName(android.os.Process.myPid());
+        String processName = com.tanxin.base.newCommon.util.Utils.Companion.getProcessName(android.os.Process.myPid());
         // 设置是否为上报进程
         CrashReport.UserStrategy strategy = new CrashReport.UserStrategy(context);
         strategy.setUploadProcess(processName == null || processName.equals(packageName));
         // 初始化Bugly
-        Bugly.init(context, Constant.KEY_BUGLY, false);
+        Bugly.init(context, Constant.Companion.getKEY_BUGLY(), false);
     }
 
     //返回

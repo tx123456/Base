@@ -8,8 +8,7 @@ import android.widget.FrameLayout;
 import com.blankj.utilcode.util.BarUtils;
 import com.qmuiteam.qmui.widget.QMUITopBar;
 import com.tanxin.base.R;
-import com.tanxin.base.common.api.Constant;
-import com.tanxin.base.common.util.Utils;
+import com.tanxin.base.newCommon.api.Constant;
 
 /**
  * @author TANXIN
@@ -25,11 +24,11 @@ public abstract class BaseTitleActivity extends BaseActivity {
     protected void setBaseView() {
         contentView = LayoutInflater.from(this).inflate(R.layout.base_title_activity, null);
         setContentView(contentView);
-        activityContainer = findViewById(R.id.activity_container);
-        qmuiTopBar = findViewById(R.id.qmui_topbar);
+        activityContainer = findViewById(R.id.activityContainer);
+        qmuiTopBar = findViewById(R.id.qmuiTopBar);
         activityContainer.addView(LayoutInflater.from(this).inflate(bindLayout(), activityContainer, false));
 
-        BarUtils.setStatusBarColor(this, ContextCompat.getColor(getContext(), R.color.themeColor), Constant.DEFAULT_ALPHA);
+        BarUtils.setStatusBarColor(this, ContextCompat.getColor(getContext(), R.color.themeColor), Constant.Companion.getDEFAULT_ALPHA());
         BarUtils.addMarginTopEqualStatusBarHeight(qmuiTopBar);
         qmuiTopBar.setBackgroundDividerEnabled(false);
         qmuiTopBar.addLeftBackImageButton().setOnClickListener(new View.OnClickListener() {

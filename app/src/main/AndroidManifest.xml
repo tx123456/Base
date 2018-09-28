@@ -43,6 +43,7 @@
         <!-- =======================bugly配置结束====================== -->
         <activity android:name=".modules.activity.ArouteActivity" />
         <activity android:name=".modules.activity.LoginActivity" />
+        <activity android:name=".modules.CeshiActivity" />
     </application>
 
 </manifest>
