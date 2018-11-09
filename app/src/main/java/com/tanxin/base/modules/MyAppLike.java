@@ -9,7 +9,6 @@ import android.os.Build;
 import android.os.Environment;
 import android.support.multidex.MultiDex;
 
-import com.alibaba.android.arouter.launcher.ARouter;
 import com.blankj.utilcode.util.Utils;
 import com.meituan.android.walle.WalleChannelReader;
 import com.tanxin.base.R;
@@ -39,10 +38,6 @@ public class MyAppLike extends DefaultApplicationLike {
         context = getApplication();
         Utils.init(context);
         initBugly();
-
-        ARouter.openLog();
-        ARouter.openDebug();
-        ARouter.init(getApplication());
 
         String channel = WalleChannelReader.getChannel(context);
     }

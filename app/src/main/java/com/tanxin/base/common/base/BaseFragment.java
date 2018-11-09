@@ -7,14 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.alibaba.android.arouter.launcher.ARouter;
 import com.tanxin.base.modules.MyAppLike;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 import me.yokeyword.fragmentation.SupportFragment;
 import me.yokeyword.fragmentation.anim.DefaultHorizontalAnimator;
 import me.yokeyword.fragmentation.anim.FragmentAnimator;
@@ -27,7 +24,6 @@ import me.yokeyword.fragmentation.anim.FragmentAnimator;
  
  
 public abstract class BaseFragment extends SupportFragment {
-    private Unbinder unbinder;
     protected View rootView;
     private Context mContext;
 
@@ -41,9 +37,10 @@ public abstract class BaseFragment extends SupportFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         EventBus.getDefault().register(this);
-        ARouter.getInstance().inject(this);
+        if (null != getArguments()) {
+            getBundleExtras(getArguments());
+        }
         setBaseView(inflater,container);
-        unbinder = ButterKnife.bind(this,rootView);
         noLazy();
         return rootView;
     }
@@ -73,6 +70,13 @@ public abstract class BaseFragment extends SupportFragment {
 
     public abstract int getContentViewId();
 
+
+    /**
+     * Bundle  传递数据
+     *
+     * @param extras Bundle
+     */
+    protected abstract void getBundleExtras(Bundle extras);
 
     /**
      * EventBus接收消息
@@ -113,7 +117,6 @@ public abstract class BaseFragment extends SupportFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        unbinder.unbind();
         EventBus.getDefault().unregister(this);
     }
 }

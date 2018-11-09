@@ -7,6 +7,7 @@ import com.tanxin.base.common.base.mvp.BaseMvpView;
 import com.tanxin.base.common.base.mvp.BasePresenter;
 import com.tanxin.base.common.base.mvp.PresenterDispatch;
 import com.tanxin.base.common.base.mvp.PresenterProviders;
+import com.tanxin.base.newCommon.base.*;
 
 /**
  * @author TANXIN
@@ -14,7 +15,7 @@ import com.tanxin.base.common.base.mvp.PresenterProviders;
  */
  
  
-public abstract class BaseTitleMvpActivity <P extends BasePresenter> extends BaseTitleActivity
+public abstract class BaseTitleMvpActivity <P extends BasePresenter> extends com.tanxin.base.newCommon.base.BaseTitleActivity
             implements BaseMvpView {
     private PresenterProviders mPresenterProviders;
     private PresenterDispatch mPresenterDispatch;

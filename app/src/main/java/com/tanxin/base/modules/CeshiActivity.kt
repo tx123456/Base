@@ -13,8 +13,13 @@ import org.jetbrains.anko.toast
  * Created by 阳阳 on 2018/9/28.
  */
 class CeshiActivity :BaseTitleActivity(){
+
     override fun bindLayout(): Int {
         return R.layout.fragment_ceshi
+    }
+
+    override fun getBundleExtras(extras: Bundle) {
+
     }
 
     override fun onEventComing(event: BaseEvent<*>) {
@@ -22,7 +27,7 @@ class CeshiActivity :BaseTitleActivity(){
 
     override fun initView(savedInstanceState: Bundle?) {
         qmuiTopBar.setTitle("666666")
-        tv.setText("测试赛所所所")
+        tv.text="测试赛所所所"
         toast("ceshi")
     }
 
