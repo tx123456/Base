@@ -1,11 +1,10 @@
-package com.tanxin.base.newCommon.base
+package com.tanxin.base.common.base
 
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.ScreenUtils
-import com.tanxin.base.common.base.BaseEvent
 import me.yokeyword.fragmentation.SupportActivity
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
@@ -19,12 +18,13 @@ abstract class BaseActivity : SupportActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setWindow()
-        setBaseView()
-        LogUtils.i(javaClass.name)
         val extras = intent.extras
-        if (null != extras) {
+        extras?.let {
             getBundleExtras(extras)
         }
+        setBaseView()
+        LogUtils.i(javaClass.name)
+
         EventBus.getDefault().register(this)
         if (ScreenUtils.isPortrait()) {
             ScreenUtils.adaptScreen4VerticalSlide(this, 360)
@@ -52,14 +52,14 @@ abstract class BaseActivity : SupportActivity() {
      * EventBus接收消息
      * @param event 获取事件总线信息
      */
-    protected abstract fun onEventComing(event: BaseEvent<*>)
+    open fun onEventComing(event: BaseEvent<*>){}
 
     /**
      * Bundle  传递数据
      *
      * @param extras Bundle
      */
-    protected abstract fun getBundleExtras(extras: Bundle)
+    open fun getBundleExtras(extras: Bundle){}
 
     /**
      * 初始化界面
@@ -79,9 +79,7 @@ abstract class BaseActivity : SupportActivity() {
         }
     }
 
-    fun getContext(): Context {
-        return this
-    }
+    fun getThisContext(): Context = this
 
     override fun onDestroy() {
         super.onDestroy()

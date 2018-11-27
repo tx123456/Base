@@ -1,10 +1,9 @@
-package com.tanxin.base.newCommon.util
+package com.tanxin.base.common.util
 
 import android.annotation.SuppressLint
 import android.support.design.internal.BottomNavigationItemView
 import android.support.design.internal.BottomNavigationMenuView
 import android.support.design.widget.BottomNavigationView
-import android.text.TextUtils
 import android.util.Log
 import java.io.BufferedReader
 import java.io.FileReader
@@ -35,8 +34,8 @@ class Utils{
                 e.printStackTrace()
             }finally {
                 try {
-                    if (reader!=null) reader.close()
-                    if (fileReader!=null) fileReader.close()
+                    reader?.close()
+                    fileReader?.close()
                 }catch (e:IOException){
                     e.printStackTrace()
                 }
@@ -55,7 +54,7 @@ class Utils{
                 shiftingMode.isAccessible = false
                 for (i in 0 until menuView.childCount){
                     val item = menuView.getChildAt(i) as BottomNavigationItemView
-                    item.setShiftingMode(false)
+                    item.setShifting(false)
                     item.setChecked(item.itemData.isChecked)
                 }
             }catch (e:NoSuchFieldException){

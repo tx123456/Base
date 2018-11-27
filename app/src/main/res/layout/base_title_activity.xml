@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
 
     <com.qmuiteam.qmui.widget.QMUITopBar
-        android:id="@+id/qmuiTopBar"
+        android:id="@+id/titleView"
         android:layout_width="match_parent"
         android:layout_height="45dp"/>
     <FrameLayout

@@ -2,12 +2,11 @@ package com.tanxin.base.modules
 
 import android.os.Bundle
 import com.tanxin.base.R
-import com.tanxin.base.R.id.tab_view
 import com.tanxin.base.common.base.BaseEvent
 import com.tanxin.base.common.base.BaseFragment
 import com.tanxin.base.modules.fragment.CeshiFragment
-import com.tanxin.base.newCommon.base.BaseActivity
-import com.tanxin.base.newCommon.util.Utils
+import com.tanxin.base.common.base.BaseActivity
+import com.tanxin.base.common.util.Utils
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {

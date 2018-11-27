@@ -19,9 +19,13 @@ class LoginActivity : BaseTitleMvpActivity<LoginPersenter>(), LoginView {
 
     var key: String? = null
 
-    override fun bindLayout(): Int {
-        return R.layout.activity_aroute
+    companion object {
+        fun startActivity(context: Context, key: String) {
+            context.startActivity(Intent(context, CeshiActivity::class.java).putExtra("key", key))
+        }
     }
+
+    override fun bindLayout(): Int = R.layout.activity_aroute
 
     override fun getBundleExtras(extras: Bundle) {
         key = extras.getString("key")
@@ -34,22 +38,15 @@ class LoginActivity : BaseTitleMvpActivity<LoginPersenter>(), LoginView {
     override fun initView(savedInstanceState: Bundle?) {
         super.initView(savedInstanceState)
         tv.text = key
-        qmuiTopBar.setTitle("登陆")
+        titleView.setTitle("登陆")
         presenter.login()
 
     }
 
     override fun loginSuccess() {
         startActivity<CeshiActivity>()
-        //        String url = EnvironmentSwitcher.getAppEnvironment(getContext(), Constant.Companion.getIS_DEBUG());
-        //        EnvironmentSwitchActivity.launch(getContext());
+
     }
 
-    companion object {
-        //    @PresenterVariable
-        //    LoginPersenter loginPersenter;
-        fun startActivity(context: Context, key: String) {
-            context.startActivity(Intent(context, CeshiActivity::class.java).putExtra("key", key))
-        }
-    }
+
 }

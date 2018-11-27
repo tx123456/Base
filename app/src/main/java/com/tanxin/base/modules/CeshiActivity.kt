@@ -1,10 +1,9 @@
 package com.tanxin.base.modules
 
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.os.Bundle
 import com.tanxin.base.R
 import com.tanxin.base.common.base.BaseEvent
-import com.tanxin.base.newCommon.base.BaseTitleActivity
+import com.tanxin.base.common.base.BaseTitleActivity
 import kotlinx.android.synthetic.main.base_title_activity.*
 import kotlinx.android.synthetic.main.fragment_ceshi.*
 import org.jetbrains.anko.toast
@@ -26,7 +25,7 @@ class CeshiActivity :BaseTitleActivity(){
     }
 
     override fun initView(savedInstanceState: Bundle?) {
-        qmuiTopBar.setTitle("666666")
+        titleView.setTitle("666666")
         tv.text="测试赛所所所"
         toast("ceshi")
     }

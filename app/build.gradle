@@ -2,12 +2,11 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply from: 'tinker-support.gradle'
 apply plugin: 'walle'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    buildToolsVersion '28.0.3'
     defaultConfig {
         applicationId "com.tanxin.base"
         minSdkVersion rootProject.ext.minSdkVersion
@@ -92,46 +91,20 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation "org.jetbrains.anko:anko-commons:$anko_version"
-    implementation "org.jetbrains.anko:anko:$anko_version"
-    implementation "org.jetbrains.anko:anko-coroutines:$anko_version"
-    implementation "org.jetbrains.anko:anko-appcompat-v7:$anko_version"
 
-    implementation "com.android.support:appcompat-v7:$rootProject.supportVersion"
-    implementation "com.android.support:recyclerview-v7:$rootProject.supportVersion"
-    implementation "com.android.support:cardview-v7:$rootProject.supportVersion"
-    implementation "com.android.support:support-v4:$rootProject.supportVersion"
-    implementation "com.android.support:design:$rootProject.supportVersion"
-    implementation 'com.android.support:multidex:1.0.3'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
-    implementation 'com.google.code.gson:gson:2.8.4'
-    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
-    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
-    implementation 'com.squareup.okhttp3:okhttp:3.11.0'
-    implementation 'com.squareup.okio:okio:1.14.1'
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.0'
-    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
-    implementation 'io.reactivex.rxjava2:rxjava:2.1.16'
-    implementation 'com.tencent.bugly:crashreport_upgrade:1.3.5'
-    implementation 'com.tencent.tinker:tinker-android-lib:1.9.6'
-    implementation 'com.tencent.bugly:nativecrashreport:3.3.1'
-    implementation 'com.meituan.android.walle:library:1.1.6'
-    implementation 'com.qmuiteam:qmui:1.1.6'
-    implementation 'com.blankj:utilcode:1.19.3'
-    implementation 'me.yokeyword:fragmentation:1.3.6'
-    implementation 'org.greenrobot:eventbus:3.1.1'
-    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.41'
-    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1'
-    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.5.1'
-    implementation 'com.github.bumptech.glide:glide:4.7.1'
-    kapt 'com.github.bumptech.glide:compiler:4.7.1'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation "com.xiaomai.environmentswitcher:environmentswitcher:$rootProject.environmentVersion"
-    debugAnnotationProcessor "com.xiaomai.environmentswitcher:environmentswitcher-compiler:$rootProject.environmentVersion"
-    releaseAnnotationProcessor "com.xiaomai.environmentswitcher:environmentswitcher-compiler-release:$rootProject.environmentVersion"
+    implementation rootProject.ext.supportLibs
+    implementation rootProject.ext.kotlinLibs
+    implementation rootProject.ext.netWorkLibs
+    implementation rootProject.ext.rxjavaLibs
+    implementation rootProject.ext.buglyLibs
+    implementation rootProject.ext.refreshLibs
+    implementation rootProject.ext.common.walle
+    implementation rootProject.ext.common.qmui
+    implementation rootProject.ext.common.utilcode
+    implementation rootProject.ext.common.fragmentation
+    implementation rootProject.ext.common.eventbus
+    implementation rootProject.ext.common.glide
+    kapt rootProject.ext.common.glideCompiler
 }
 
 

@@ -7,7 +7,6 @@ import com.tanxin.base.common.base.mvp.BaseMvpView;
 import com.tanxin.base.common.base.mvp.BasePresenter;
 import com.tanxin.base.common.base.mvp.PresenterDispatch;
 import com.tanxin.base.common.base.mvp.PresenterProviders;
-import com.tanxin.base.newCommon.base.BaseActivity;
 
 /**
  * @author TANXIN
