@@ -7,7 +7,6 @@ import com.tanxin.base.R
 import com.tanxin.base.common.base.BaseEvent
 import com.tanxin.base.common.base.BaseMvpFragment
 import com.tanxin.base.common.base.mvp.CreatePresenter
-import com.tanxin.base.modules.activity.ArouteActivity
 import com.tanxin.base.modules.activity.LoginActivity
 import com.tanxin.base.modules.persenter.LoginPersenter
 import com.tanxin.base.modules.view.LoginView
@@ -30,12 +29,12 @@ class CeshiFragment : BaseMvpFragment<LoginPersenter>(), LoginView {
         tv.text = key
         tv.onClick {
             if (key == "ONE") {
-                LoginActivity.startActivity(_mActivity, "login")
+                LoginActivity.startActivity(_mActivity, "ONE")
             } else {
-                ArouteActivity.startActivity(_mActivity, "dssa")
+                LoginActivity.startActivity(_mActivity, "ONEa")
             }
         }
-        presenter.login()
+        getPresenter().login()
     }
 
     override fun loginSuccess() {

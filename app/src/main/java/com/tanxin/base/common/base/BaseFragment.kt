@@ -34,7 +34,7 @@ abstract class BaseFragment : SupportFragment() {
     }
 
 
-    override fun getContext(): Context = _mActivity
+    fun getThisContext(): Context = _mActivity
 
     override fun onLazyInitView(savedInstanceState: Bundle?) {
         super.onLazyInitView(savedInstanceState)
