@@ -105,6 +105,9 @@ dependencies {
     implementation rootProject.ext.common.eventbus
     implementation rootProject.ext.common.glide
     kapt rootProject.ext.common.glideCompiler
+    implementation "com.xiaomai.environmentswitcher:environmentswitcher:1.5.2"
+    kaptDebug "com.xiaomai.environmentswitcher:environmentswitcher-compiler:1.5.2"
+    kaptRelease "com.xiaomai.environmentswitcher:environmentswitcher-compiler-release:1.5.2"
 }
 
 

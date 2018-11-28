@@ -11,6 +11,6 @@ import com.tanxin.base.modules.view.LoginView
 
 class LoginPersenter : BasePresenter<LoginView>() {
     fun login() {
-        mView.loginSuccess()
+        mView?.loginSuccess()
     }
 }
