@@ -87,6 +87,10 @@ android {
     packagingOptions {
         exclude 'META-INF/rxjava.properties'
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -101,6 +105,7 @@ dependencies {
     implementation rootProject.ext.common.walle
     implementation rootProject.ext.common.qmui
     implementation rootProject.ext.common.utilcode
+    implementation rootProject.ext.common.autosize
     implementation rootProject.ext.common.fragmentation
     implementation rootProject.ext.common.eventbus
     implementation rootProject.ext.common.glide

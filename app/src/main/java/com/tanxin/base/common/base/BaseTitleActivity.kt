@@ -18,7 +18,7 @@ abstract class BaseTitleActivity : BaseActivity() {
 
         activityContainer.addView(LayoutInflater.from(this).inflate(bindLayout(), activityContainer, false))
 
-        BarUtils.setStatusBarColor(this, ContextCompat.getColor(getThisContext(), R.color.themeColor), Constant.DEFAULT_ALPHA)
+        BarUtils.setStatusBarColor(this, ContextCompat.getColor(getThisContext(), R.color.themeColor))
         BarUtils.addMarginTopEqualStatusBarHeight(titleView)
         titleView.setBackgroundDividerEnabled(false)
         titleView.addLeftBackImageButton().onClick {

@@ -26,11 +26,6 @@ abstract class BaseActivity : SupportActivity() {
         LogUtils.i(javaClass.name)
 
         EventBus.getDefault().register(this)
-        if (ScreenUtils.isPortrait()) {
-            ScreenUtils.adaptScreen4VerticalSlide(this, 360)
-        } else {
-            ScreenUtils.adaptScreen4HorizontalSlide(this, 360)
-        }
         initView(savedInstanceState)
     }
 

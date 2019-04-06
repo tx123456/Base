@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import me.jessyan.autosize.AutoSizeConfig
 
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
@@ -38,6 +39,7 @@ abstract class BaseFragment : SupportFragment() {
 
     override fun onLazyInitView(savedInstanceState: Bundle?) {
         super.onLazyInitView(savedInstanceState)
+        AutoSizeConfig.getInstance().isCustomFragment = true
         initView()
     }
 
